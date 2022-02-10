@@ -89,6 +89,21 @@ void mergeSort(vector<int>& x) {
 	cout << endl;
 }
 
+void subbleBort(vector<int>& a) {
+    vector<int>::iterator i,j;
+    int tmp;
+    for(i = a.begin(); i < a.end(); i++) {
+        for(j = i+1; j < a.end(); j++) {
+            if(*j < *(j-1)) {
+                tmp = *j;
+                *j = *i;
+                *i = tmp;
+            }
+        }
+    }
+
+}
+
 int main() {
 	vector<int> v = {6,30000,9,10,12,21,32765,15,3,14,9,3,22,1};
 	printVector(v);
@@ -102,6 +117,8 @@ int main() {
 	mergeSort(v);
 	cout << "Here we go..." << endl;
 	printVector(v);
+    subbleBort(v);
+    printVector(v);
 	//cout << v.size() << endl;
 	//cout << typeid(mid).name() << endl;
 	return 0;
